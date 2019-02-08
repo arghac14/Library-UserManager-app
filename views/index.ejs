@@ -1,0 +1,42 @@
+<% include ./partials/header %>
+
+<footer style="position: absolute;top:100%; width: 100%;height: auto;background: rgb(1, 50, 67);"><p class="text-center" style="padding-top: 3px;font-size: 17px; color: rgb(228, 241, 254)">&copy 2019 All rights researved</p></footer>
+<div class="containe">
+         <div class="col-md-12" style="height: auto;min-width:270px;">
+<% if(info.length>0){ %>
+<table class="table table-hover" >
+<thead class="thead-dark">
+  <tr>
+  <th>Sl.no</th>
+  <th>Name</th>
+  <th>Student Id</th>
+  <th>Books taken</th>
+  <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+    <% info.forEach((user, index) => { %>
+  <tr>
+    <td><%= index+1 %></td>
+    <td><%= user.name %></td>
+    <td><%= user.stid  %></td>
+    <td><%= user.boos %></td>
+    
+    <td>
+        <a href="/edit<%= user.id %>"  class="btn btn-sm btn-info">&nbsp&nbspEdit&nbsp&nbsp</a>
+        <a href="/delete<%= user.id%>" class="btn btn-sm btn-danger">Delete</a>
+    </td>
+  </tr>
+ <% }); %>
+</tbody>
+</table>
+
+<% } else { %>
+  <h3 class="text-center text-danger">No data found. Click <a href="/add" >here</a> to add users.</h3>
+ <% } %>
+
+</div>
+</div>
+
+</body>
+</html>
